@@ -136,6 +136,9 @@ for url in urls:
         acc = re.sub('\n', ' ', acc)
         acc = re.sub('\ +', ' ', acc)
         acc = re.sub('^\ ', '', acc)
+        acc = re.sub('\xa0', ' ', acc)
+        acc = acc.replace(u'\u201c', '"').replace(u'\u201d', '"').replace(u'\u2019', '\'')
+        acc = acc.replace('(∞) ', '')
         
         with open('SV_works.txt', 'a+') as f:
             if urls.index(url) == 0:
